@@ -1,0 +1,49 @@
+function collectStringsHelperMethod(obj) {
+  var stringsArr = []
+
+  function gatherStrings(o) {
+    for (var key in o) {
+      if (typeof o[key] === 'string') {
+        stringsArr.push(o[key])
+      } else if (typeof o[key] === 'object') {
+        return gatherStrings(o[key])
+      }
+    }
+  }
+
+  gatherStrings(obj)
+
+  return stringsArr
+}
+
+function collectStringsPureRecursion(obj) {
+  var stringsArr = []
+  for (var key in obj) {
+    if (typeof obj[key] === 'string') {
+      stringsArr.push(obj[key])
+    } else if (typeof obj[key] === 'object') {
+      stringsArr = stringsArr.concat(collectStringsPureRecursion(obj[key]))
+    }
+  }
+
+  return stringsArr
+}
+
+const obj = {
+  stuff: "foo",
+  data: {
+      val: {
+          thing: {
+              info: "bar",
+              moreInfo: {
+                  evenMoreInfo: {
+                      weMadeIt: "baz"
+                  }
+              }
+          }
+      }
+  }
+}
+
+console.log(collectStringsHelperMethod(obj))
+console.log(collectStringsPureRecursion(obj))
