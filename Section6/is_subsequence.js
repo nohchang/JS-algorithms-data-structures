@@ -1,4 +1,4 @@
-// repeat
+// iterative
 
 function isSubsequence1(str1, str2) {
   var i = 0
