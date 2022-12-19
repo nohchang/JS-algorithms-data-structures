@@ -7,6 +7,7 @@ function naiveSearch(long, short) {
         console.log("BREAK!")
         break
       }
+      // 문자열의 길이가 인덱스보다 더 길이지기 떄문
       if (j === short.length - 1) {
         console.log("FOUND ONE!")
         count++
