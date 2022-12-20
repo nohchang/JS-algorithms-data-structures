@@ -1,3 +1,5 @@
+// 거의 다 정렬되어있을때 좋음
+
 // ES5
 
 // function bubbleSort(arr) {
